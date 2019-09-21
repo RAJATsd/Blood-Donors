@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Contact Us form</title>
+  <link rel="stylesheet" href="/css/firstpage.css">
+  <script type="text/javascript" src="/scripts/firstpage.js"></script>
+</head>
+<body>
+
+<div class="heading">
+  <h3 class="head-text">Enter The Full Details</h3>
+</div>
+<div class="fullwrap">
+    <form action="/instDonorSubmit" method="POST">
+        <div class="contact-form">
+            <div class="input-fields">
+            <input type="text" class="input" name="category" value='<%= category %>'>
+            <input type="text" class="input" name="institute" value='<%= institute %>'>    
+            <input type="number" name="rollno" class="input" value='<%= rollno %>' >
+            <input type="text" class="input" name="donorName" placeholder="Name Of Donor" required>
+               
+            <select class="input" name="course" >
+                <option value="" disabled selected>Course</option>
+                <option value="BBA"class="contact-form">BBA</option>
+                <option value="BCA"class="contact-form">BCA</option>
+                <option value="BA"class="contact-form">BA</option>
+                <option value="CSE"class="contact-form">CSE</option>
+                <option value="CIVIL"class="contact-form">CIVIL</option>
+                <option value="ELE"class="contact-form">ELE</option>
+                <option value="ECE"class="contact-form">ECE</option>
+                <option value="IT"class="contact-form">IT</option>
+                <option value="ME"class="contact-form">ME</option>
+                <option value="MBA"class="contact-form">MBA</option>
+                <option value="MCA"class="contact-form">MCA</option>
+                <option value="MA"class="contact-form">MA</option>
+                <option value="MCOM"class="contact-form">MCOM</option>                                
+            </select>
+            <select class="input" name="year" >
+                <option value="" disabled selected>Year</option>
+                <option value="1"class="contact-form">1st</option>
+                <option value="2"class="contact-form">2nd</option>
+                <option value="3"class="contact-form">3rd</option>
+                <option value="4"class="contact-form">4th</option>
+            </select>             
+            <select class="input" name="sex" required>
+                <option value="" disabled selected>Sex</option>
+                <option value="Male"class="contact-form">Male</option>
+                <option value="Female"class="contact-form">Female</option>
+            </select>
+            <input type="number" name="mobileNumber" class="input" placeholder="Mobile Number" required>
+            <select class="input" name="bloodGroup" required>
+                <option value="" disabled selected>Blood Group</option>
+                <option value="A+"class="contact-form">A+</option>
+                <option value="A-"class="contact-form">A-</option>
+                <option value="B+"class="contact-form">B+</option>
+                <option value="B-"class="contact-form">B-</option>
+                <option value="O+"class="contact-form">O+</option>
+                <option value="O-"class="contact-form">O-</option>
+                <option value="AB+"class="contact-form">AB+</option>
+                <option value="AB-"class="contact-form">AB-</option>                
+            </select>
+            <select class="input" name="bank" required>
+                <option value="" disabled selected>Bank</option>
+                <option value="PGI"class="contact-form">PGI</option>
+                <option value="Red Cross"class="contact-form">Red Cross</option>
+            </select>
+            <select class="input" name="giftRecieved" required>
+                <option value="" disabled selected>Gift Recieved</option>
+                <option value="YES"class="contact-form">YES</option>
+                <option value="NO"class="contact-form">NO</option>
+            </select>
+            <button type="submit" class="button">Submit Donor</button>
+            </div>
+        </div>   
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Contact Us form</title>
+  <link rel="stylesheet" href="/css/firstpage.css">
+  <script type="text/javascript" src="/scripts/firstpage.js"></script>
+</head>
+<body>
+
+<div class="heading">
+  <h3 class="head-text">Enter The Basic Details</h3>
+</div>
+<div class="wrapper">
+  <form action="/instDonor" method="POST">
+      <div class="contact-form">
+          <div class="input-fields">
+            <select class="input" name="category" id="instSelect" onchange="hideOrShow()" required>
+              <option value="" disabled selected>Donor Category</option>
+              <option value="Student"class="contact-form">Student</option>
+              <option value="Teaching"class="contact-form">Teaching</option>
+              <option value="Non-Teaching"class="contact-form">Non Teaching</option>
+              <option value="Guest"class="contact-form">Guest</option>
+            </select>
+            <div id="hidElement">
+                <select class="input" name="institute" required >
+                  <option value="" disabled selected>Institute</option>
+                  <option class="contact-form" value="JMIT">JMIT</option>
+                  <option class="contact-form" value="JMIETI">JMIETI</option>
+                  <option class="contact-form" value="MLN YNR">MLN YNR</option>
+                  <option class="contact-form" value="MLN Radaur">MLN Radaur</option>
+                  <option class="contact-form" value="SJPP Damla">SJPP Damla</option>
+                  <option class="contact-form" value="Others">Others</option>
+                </select>      
+                <input type="number" name="rollno" class="input" placeholder="Roll Number/Employee Id" required >
+                <button type="submit" class="button">Next</button>      
+            </div>
+            <!-- <input type="text" class="input" placeholder="Email Address">
+            <input type="text" class="input" placeholder="Phone">
+            <input type="text" class="input" placeholder="Subject"> -->
+          </div>
+        </div>
+      </div>
+      
+  </form>
+  
+<div class="wrapper-second" id="hiddenForm">
+  <form action="/guestDonor" method="POST">
+      <div class="contact-form">
+          <div class="input-fields">
+            <input type="text" name="name" class="input" placeholder="Name">
+            <input type="text" name="age" class="input" placeholder="Age">
+            <input type="text" name="fatherName" class="input" placeholder="Fathers Name">
+            <button type="submit" class="button">Next</button>
+          </div>
+        </div>
+  </form>
+</div>
+
+
+</body>
+</html>

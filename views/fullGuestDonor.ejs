@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Contact Us form</title>
+  <link rel="stylesheet" href="/css/firstpage.css">
+  <script type="text/javascript" src="/scripts/firstpage.js"></script>
+</head>
+<body>
+
+<div class="heading">
+  <h3 class="head-text">Enter The Full Details</h3>
+</div>
+<div class="fullwrap">
+    <form action="/guestDonorSubmit" method="POST">
+        <div class="contact-form">
+            <div class="input-fields">
+            <input type="text" class="input" name="category" value='<%= category %>'>
+            <input type="text" class="input" name="name" value='<%= name %>'>    
+            <input type="number" name="age" class="input" value='<%= age %>' >
+            <input type="text" class="input" name="fatherName" value='<%= fatherName %>'>
+            <input type="text" class="input" name="uniqueId" value='<%= uniqueId %>'>             
+            <select class="input" name="sex" required>
+                <option value="" disabled selected>Sex</option>
+                <option value="Male"class="contact-form">Male</option>
+                <option value="Female"class="contact-form">Female</option>
+            </select>
+            <input type="number" name="mobileNumber" class="input" placeholder="Mobile Number" required>
+            <select class="input" name="bloodGroup" required>
+                <option value="" disabled selected>Blood Group</option>
+                <option value="A+"class="contact-form">A+</option>
+                <option value="A-"class="contact-form">A-</option>
+                <option value="B+"class="contact-form">B+</option>
+                <option value="B-"class="contact-form">B-</option>
+                <option value="O+"class="contact-form">O+</option>
+                <option value="O-"class="contact-form">O-</option>
+                <option value="AB+"class="contact-form">AB+</option>
+                <option value="AB-"class="contact-form">AB-</option>                
+            </select>
+            <select class="input" name="bank" required>
+                <option value="" disabled selected>Bank</option>
+                <option value="PGI"class="contact-form">PGI</option>
+                <option value="Red Cross"class="contact-form">Red Cross</option>
+            </select>
+            <select class="input" name="giftRecieved" required>
+                <option value="" disabled selected>Gift Recieved</option>
+                <option value="YES"class="contact-form">YES</option>
+                <option value="NO"class="contact-form">NO</option>
+            </select>
+            <button type="submit" class="button">Submit Donor</button>
+            </div>
+        </div>   
+    </form>
+</div>
+</body>
+</html>
