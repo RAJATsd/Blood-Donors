@@ -5,6 +5,69 @@ exports.getFirstPage= (req,res,next) => {
     res.render('firstPage');
 }
 
+exports.viewDonor = (req,res,next) => {
+    let instDonors={};
+    InstDonor.find()
+    .then(results=>{
+        instDonors=results;
+    })
+    .catch(err=>{
+        console.log(err);
+    });
+
+    GuestDonor.find()
+    .then(guests=>{
+        res.render('totalDonors',{results:instDonors,guests:guests});
+    })
+    .catch(err=>{
+        console.log(err);
+    });
+}
+
+exports.postViewDonors = (req,res,next) =>{
+    const institute=req.body.institute;
+    const course=req.body.course;
+    const sex=req.body.sex;
+    const bank=req.body.bank;
+    const propertyInst={}
+    const propertyGuest={}
+    if(institute!="")
+    {
+        propertyInst['institute']=institute;
+    }
+    if(course!="")
+    {
+        propertyInst['course']=course;
+    }
+    if(sex!="")
+    {
+        propertyInst['sex']=sex;
+        propertyGuest['sex']=sex;
+    }
+    if(bank!="")
+    {
+        propertyInst['bank']=bank;
+        propertyGuest['bank']=bank;
+    }
+    
+    let instDonors={};
+    InstDonor.find(propertyInst)
+    .then(results=>{
+        console.log(results);
+        instDonors=results;
+    })
+    .catch(err=>{
+        console.log(err);
+    });
+    GuestDonor.find(propertyGuest)
+    .then(guests=>{
+        res.render('totalDonors',{results:instDonors,guests:guests});
+    })
+    .catch(err=>{
+        console.log(err);
+    });
+}
+
 exports.postGuestDonor = (req,res,next) =>{
     const category='Guest';
     const name=req.body.name;
@@ -33,7 +96,7 @@ exports.postInstDonor = (req,res,next) =>{
     const institute = req.body.institute;
     const rollno = req.body.rollno;
 
-    InstDonor.findOne({rollno:rollno} && {institute:institute})
+    InstDonor.findOne({rollno:rollno,institute:institute})
     .then(donorInfo => {
         if(donorInfo)
         {
@@ -78,11 +141,15 @@ exports.postInstDonorSubmit = (req,res,next) =>{
     donor.save()
     .then( result => {
         console.log('donor saved successfully.');
-        res.render('succesfullSave');
+        res.redirect('/successfulSave');
     })
     .catch(err=>{
         console.log(err);
     });
+}
+
+exports.getShowSaved=(req,res,next)=>{
+    res.render('succesfullSave');
 }
 
 exports.postGuestDonorSubmit = (req,res,next) =>{
@@ -113,7 +180,7 @@ exports.postGuestDonorSubmit = (req,res,next) =>{
     gdonor.save()
     .then(result=>{
         console.log('user saved successfully');
-        res.render('succesfullSave');
+        res.redirect('/successfulSave');
     })
     .catch(err=>{
         console.log(err);
