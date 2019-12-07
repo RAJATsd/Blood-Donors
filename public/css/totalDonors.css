@@ -1,5 +1,7 @@
 body{
-    background-image: url('/images/page_back.jpg')
+    background-image: url('/images/page_back.jpg');
+    margin: 0px;
+
 }
 
 .header{
@@ -113,4 +115,17 @@ body{
 
   .myTable tr.headings,.myTable tr.hover{
       background-color: beige;
+  }
+
+  footer{
+    position: fixed;
+    bottom: 0px;
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+    background: #a8bbba;
+  }
+
+  h4{
+    margin: 0px;
   }

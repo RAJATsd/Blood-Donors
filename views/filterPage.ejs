@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Filter Donor</title>
+  <link rel="stylesheet" href="/css/firstpage.css">
+  <link rel="stylesheet" href="/css/filterPage.css">
+  <script type="text/javascript" src="/scripts/firstpage.js"></script>
+</head>
+<body>
+<div class="header">
+  <a class="logo" href="/">The Donor</a>
+  <div class="header-right">
+    <a class="links" href="/">Home</a>
+    <a class="links" href="/viewDonors">View Donors</a>
+    <a class="links" href="/filter">Filter Search</a>
+    <a class="links" href="/logout">Logout</a>
+  </div>
+</div>
+<div style="margin-left:3%; margin-top:1%">
+    <h3>Filter Search</h3>
+</div>
+<div class="filter" style="margin-left:3%">
+    <form action="/filter" method="POST">
+        <select class="selectButtons" name="Institute" id="">
+            <option value="" selected>Institute</option>
+            <option value="JMIT">JMIT</option>
+            <option value="JMIETI">JMIETI</option>
+            <option value="MLN YNR">MLN YNR</option>
+            <option value="MLN Radaur">MLN Radaur</option>
+            <option value="SJPP Damla">SJPP Damla</option>
+            <option value="Others">Others</option>
+        </select>
+        <select class="selectButtons"  name="Department" id="">
+            <option value="" selected>Department</option>
+            <option value="BBA/MBA" >BBA/MBA</option>
+            <option value="BCA/MCA" >BCA/MCA</option>
+            <option value="CSE" >CSE</option>
+            <option value="ELE" >ELE</option>
+            <option value="ECE" >ECE</option>
+            <option value="IT" >IT</option>
+            <option value="ME" >ME</option>
+            <option value="others">others</option>
+        </select>
+        <select class="selectButtons" name="Gender" id="">
+            <option value="" selected>Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <select class="selectButtons" name="bank" id="">
+            <option value="">Blood Bank</option>
+            <option value="PGI">PGI</option>
+            <option value="Red Cross">Red Cross</option>
+        </select>
+        <button class="subButton" type="submit">Search Donors</button>
+    </form>
+</div>
+<div style="overflow:auto;height:60vh;margin-top: 20px">
+    <% if(InstituteInd.length>0) { %>
+        <div style="margin-left:3%">
+                <h3>
+                    Institute Donors ( <%= InstituteInd.length %> )
+                </h3>
+            </div>
+            <div class="tablekeepers">
+                <table class="myTable">
+                    <tr class="headings">
+                        <th style="width:10%;">SNo</th>
+                        <th style="width:10%;">Institute</th>
+                        <th style="width:10%;">Name</th>
+                        <th style="width:5%;">Blood Group</th>
+                        <th style="width:10%;">Gift Recieved</th>
+                        <!-- <th style="width:15%;">Name</th>
+                        <th style="width:5%;">Course</th>
+                        <th style="width:5%;">Year</th>
+                        <th style="width:5%;">Gender</th>
+                        <th style="width:10%;">Blood Group</th>
+                        <th style="width:10%;">Bank</th>
+                        <th style="width:15%;">Mobile Number</th>
+                        <th style="width:10%">Gift Recieved</th>   -->
+                    </tr>
+                    <% for (result in InstituteInd) { %>
+                        <tr>
+                            <td><%= InstituteInd[result].SerialNo %></td>
+                            <td><%= InstituteInd[result].Institute %></td>
+                            <td><%= InstituteInd[result].FullName %></td>
+                            <td><%= InstituteInd[result].BloodGroup %></td>
+                            <td><%= InstituteInd[result].GiftRecieved %></td>
+                        </tr>
+                    <% } %>
+                </table>
+            </div>
+    <% } %>
+    <% if(GuestInd.length >0) { %>
+        <div style="margin-left:3%">
+                <h3>
+                    Guest Donors ( <%= GuestInd.length %> )
+                </h3>
+            </div>
+            <div class="tablekeepers">
+                <table class="myTable">
+                    <tr class="headings">
+                            <th style="width:10%;">SNo</th>
+                            <th style="width:10%;">Institute</th>
+                            <th style="width:10%;">Name</th>
+                            <th style="width:5%;">Blood Group</th>
+                            <th style="width:10%;">Gift Recieved</th>  
+                    </tr>
+                    <% for (guest in GuestInd) { %>
+                        <tr>
+                            <td><%= GuestInd[guest].SerialNo %></td>
+                            <td><%= GuestInd[guest].Institute %></td>
+                            <td><%= GuestInd[guest].donorName %></td>
+                            <td><%= GuestInd[guest].bloodGroup %></td>
+                            <td><%= GuestInd[guest].giftRecieved %></td>
+                        </tr>
+                    <% } %>
+                </table>
+            </div>
+    <% } %>
+    
+</div>
+<footer>
+    <h4>Developed By : Rajat</h4>
+    <ul>
+        <h4>Teacher Coordinators :</h4>
+        <h4>Dr. Gaurav Sharma</h4>
+        <h4>Er. Shilpi</h4>
+        <h4>Er. Monika</h4>
+    </ul>
+</footer>
+</body>
+</html>

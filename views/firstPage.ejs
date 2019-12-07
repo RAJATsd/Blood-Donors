@@ -8,59 +8,131 @@
 </head>
 <body>
 <div class="header">
-  <a href="/" class="logo"><img src="/images/blood_donate.jpg" alt=""></a>
+  <a class="logo" href="/">The Donor</a>
   <div class="header-right">
     <a class="links" href="/">Home</a>
     <a class="links" href="/viewDonors">View Donors</a>
-    <a class="links" href="/about">About Developer</a>
+    <a class="links" href="/filter">Filter Search</a>
+    <a class="links" href="/logout">Logout</a>
   </div>
 </div>
-<div class="heading">
-  <h3 class="head-text">Enter The Basic Details</h3>
-</div>
+<center>
+  <div class="heading">
+    <h3 class="head-text">Enter The Basic Details</h3>
+  </div>
+</center>
 <div class="wrapper">
-  <form action="/instDonor" method="POST">
+  <form action="/instituteIndividual" method="POST">
       <div class="contact-form">
           <div class="input-fields">
-            <select class="input" name="category" id="instSelect" onchange="hideOrShow()" required>
+            <select class="input" name="institute" id="instSelect" onchange="hideOrShow()" required >
+              <option value="" disabled selected>Institute</option>
+              <option class="contact-form" value="JMIT">JMIT</option>
+              <!-- <option class="contact-form" value="JMIETI">JMIETI</option>
+              <option class="contact-form" value="MLN YNR">MLN YNR</option>
+              <option class="contact-form" value="MLN Radaur">MLN Radaur</option>
+              <option class="contact-form" value="SJPP Damla">SJPP Damla</option> -->
+              <option class="contact-form" value="Others">Others</option>
+            </select>
+            <div id="hidElement">      
+              <input type="number" name="rollno" class="input" placeholder="Roll Number/Employee Id" required >
+              <button type="submit" class="button">Next</button>      
+            </div>
+            <!-- <select class="input" name="category" id="instSelect" onchange="hideOrShow()" required>
               <option value="" disabled selected>Donor Category</option>
               <option value="Student"class="contact-form">Student</option>
               <option value="Teaching"class="contact-form">Teaching</option>
               <option value="Non-Teaching"class="contact-form">Non Teaching</option>
               <option value="Guest"class="contact-form">Guest</option>
             </select>
-            <div id="hidElement">
-                <select class="input" name="institute" required >
-                  <option value="" disabled selected>Institute</option>
-                  <option class="contact-form" value="JMIT">JMIT</option>
-                  <option class="contact-form" value="JMIETI">JMIETI</option>
-                  <option class="contact-form" value="MLN YNR">MLN YNR</option>
-                  <option class="contact-form" value="MLN Radaur">MLN Radaur</option>
-                  <option class="contact-form" value="SJPP Damla">SJPP Damla</option>
-                  <option class="contact-form" value="Others">Others</option>
-                </select>      
+            <div id="hidElement">      
                 <input type="number" name="rollno" class="input" placeholder="Roll Number/Employee Id" required >
                 <button type="submit" class="button">Next</button>      
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
       
   </form>
   
-<div class="wrapper-second" id="hiddenForm">
+<div class="wrapper-second" id="hiddenFullForm">
   <form action="/guestDonor" method="POST">
       <div class="contact-form">
           <div class="input-fields">
-            <input type="text" name="name" class="input" placeholder="Name">
-            <input type="text" name="age" class="input" placeholder="Age">
-            <input type="text" name="fatherName" class="input" placeholder="Fathers Name">
+            <input type="number" name="SerialNo" class="input" placeholder="Serial Number"> <br>
+            <select class="input" name="Institute" id="institutions" onchange="showingGuest()" required >
+              <option value="" disabled selected>Institute</option>
+              <option class="contact-form" value="JMIT">JMIT</option>  
+              <option class="contact-form" value="JMIETI">JMIETI</option>
+              <option class="contact-form" value="MLN YNR">MLN YNR</option>
+              <option class="contact-form" value="MLN Radaur">MLN Radaur</option>
+              <option class="contact-form" value="SJPP Damla">SJPP Damla</option>
+              <option class="contact-form" value="Others">Others</option>
+            </select>
+            <div id="hidingGuest">
+              <input type="number" name="rollno" class="input" placeholder="Roll Number/Employee Id">
+              <select class="input" name="Department" >
+                <option value="" disabled selected>Course</option>
+                <option value="BBA/MBA"class="contact-form">BBA/MBA</option>
+                <option value="BCA/MCA"class="contact-form">BCA/MCA</option>
+                <option value="CSE"class="contact-form">CSE</option>
+                <option value="ELE"class="contact-form">ELE</option>
+                <option value="ECE"class="contact-form">ECE</option>
+                <option value="IT"class="contact-form">IT</option>
+                <option value="ME"class="contact-form">ME</option>
+                <option value="others"class="contact-form">others</option>                                
+              </select>
+              <select class="input" name="year" >
+                <option value="" disabled selected>Year</option>
+                <option value="1"class="contact-form">1st</option>
+                <option value="2"class="contact-form">2nd</option>
+                <option value="3"class="contact-form">3rd</option>
+                <option value="4"class="contact-form">4th</option>
+              </select>                
+            </div>
+            <select class="input" name="Gender" required>
+                <option value="" disabled selected>Gender</option>
+                <option value="Male"class="contact-form">Male</option>
+                <option value="Female"class="contact-form">Female</option>
+            </select>
+            <input type="text" name="donorName" class="input" placeholder="Name">
+            <input type="number" name="age" class="input" placeholder="Age">
+            <input type="number" name="mobileNumber" class="input" placeholder="Mobile Number" required>
+            <select class="input" name="bloodGroup" required>
+              <option value="" disabled selected>Blood Group</option>
+              <option value="A+"class="contact-form">A+</option>
+              <option value="A-"class="contact-form">A-</option>
+              <option value="B+"class="contact-form">B+</option>
+              <option value="B-"class="contact-form">B-</option>
+              <option value="O+"class="contact-form">O+</option>
+              <option value="O-"class="contact-form">O-</option>
+              <option value="AB+"class="contact-form">AB+</option>
+              <option value="AB-"class="contact-form">AB-</option>                
+            </select>
+            <select class="input" name="bank" required>
+              <option value="" disabled selected>Bank</option>
+              <option value="PGI"class="contact-form">PGI</option>
+              <option value="Red Cross"class="contact-form">Red Cross</option>
+              <option value="Others"class="contact-form">Others</option>
+            </select>
+            <select class="input" name="giftRecieved" required>
+              <option value="" disabled selected>Gift Recieved</option>
+              <option value="YES"class="contact-form">YES</option>
+              <option value="NO"class="contact-form">NO</option>
+            </select>
             <button type="submit" class="button">Next</button>
           </div>
         </div>
   </form>
 </div>
-
-
+<footer>
+  <h4>Developed By : Rajat</h4>
+  <ul>
+      <h4>Teacher Coordinators :</h4>
+      <h4>Dr. Gaurav Sharma</h4>
+      <h4>Er. Shilpi</h4>
+      <h4>Er. Monika</h4>
+  </ul>
+</footer>
 </body>
 </html>

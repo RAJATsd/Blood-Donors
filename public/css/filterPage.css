@@ -1,0 +1,50 @@
+.filter{
+    margin-top: 1%;
+}
+
+.selectButtons{
+    margin:5px;
+}
+
+.filter select{
+    width:200px;
+    height: 25px;
+}
+
+.filter button{
+    margin-left: 40px;
+    height: 25px;
+    padding: 3px;
+    box-sizing: border-box;
+    background: salmon;
+    width: 150px
+}
+
+.filter button:hover{
+    background: yellowgreen;
+}
+
+.tablekeepers{
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.myTable{
+    border-collapse: collapse;
+    border: solid 1px darkslategray;
+    width: 100%;
+    font-size: 18px;
+}
+
+.myTable th, .myTable td {
+    text-align: left;
+    padding: 12px;
+}
+
+.myTable tr{
+    border-bottom: 1px solid dimgrey;
+}
+
+.myTable tr.headings,.myTable tr.hover{
+    background-color: beige;
+}

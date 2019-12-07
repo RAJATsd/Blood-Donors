@@ -1,0 +1,8 @@
+Serial Number
+Institute
+Name
+Bank
+Blood Group
+Gift Recieved
+
+"start": "MONGO_USER=rajat_dec MONGO_PASSWORD=3oHvWIbhz8AyGsQa node index.js"

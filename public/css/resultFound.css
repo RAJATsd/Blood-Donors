@@ -1,0 +1,14 @@
+.fullInfo{
+    margin-left: 30vw;
+    margin-top: 5vh;
+}
+
+.fullInfo input,select{
+    margin: 10px;
+    width: 250px;
+    height: 30px;
+}
+
+.fullInfo input:focus,select:focus{
+    border: green 2px solid;
+}

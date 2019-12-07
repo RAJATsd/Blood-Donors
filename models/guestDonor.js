@@ -2,27 +2,32 @@ const mongoose= require('mongoose');
 const schema=mongoose.Schema;
 
 const guestSchema = new schema({
-    uniqueId : {
-        type: String,
+    SerialNo:{
+        type:Number,
         required:true
-    },
-    category : {
-        type: String,
-        required: true
     },
     donorName : {
         type: String,
         required: true
     },
     age : {
-        type: Number,
-        required: true
+        type: Number
     },
-    fatherName : {
-        type: String,
-        required: true
+    Institute:{
+        type:String
+    }
+    ,
+    rollno : {
+        type:Number
+    }
+    ,
+    Department: {
+        type:String
+    },
+    year : {
+        type:String
     },    
-    sex : {
+    Gender : {
         type: String,
         required: true
     },

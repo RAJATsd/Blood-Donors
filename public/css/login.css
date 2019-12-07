@@ -1,0 +1,41 @@
+body{
+    width: 50vw;
+    height: 25vh;
+    margin: auto;
+    margin-top: 25vh;
+}
+
+.whole-area{
+    width: 100%;
+    height: 100%;
+    background: springgreen;   
+}
+
+.heading{
+    margin:0 24%;
+    display: inline-block;
+    padding-top: 50px;
+}
+
+.inputField{
+    
+    margin: 30px 35%;
+}
+
+.inputField input{
+    width: 250px;
+    height: 30px;
+}
+
+.heading h3{
+    color: rebeccapurple;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.inputField button{
+    margin-top: 20px;
+    background: azure;
+    margin-left: 90px;
+    padding: 10px;
+}
